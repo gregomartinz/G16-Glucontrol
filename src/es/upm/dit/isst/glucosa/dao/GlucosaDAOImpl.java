@@ -25,6 +25,12 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public ArrayList<Usuario> readGenero(String genero){
+		
+		return null;
+	}
 
 	@Override
 	public void update() {

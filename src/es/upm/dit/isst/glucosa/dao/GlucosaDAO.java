@@ -8,8 +8,9 @@ public interface GlucosaDAO {
 
 	public void create(String dni, String correo, String nombre, String genero, 
 			String fechaDiagnostico, String fechaNacimiento, ArrayList<String> datos);
-	public Usuario read(String dni);
-	public void update();
+	public Usuario readDni(String dni);
+	public ArrayList<Usuario> readGenero(String genero);
+	public void update(Usuario user);
 	public void delete(Usuario user);
 	
 }
