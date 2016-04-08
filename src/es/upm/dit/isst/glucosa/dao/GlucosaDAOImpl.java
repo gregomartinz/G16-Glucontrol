@@ -69,7 +69,7 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em.createQuery("select m from Usuario m");
 		try{
-			ArrayList<Usuario> lista = (ArrayList<Usuario>) q.getResultList();
+			ArrayList<Usuario> lista = (ArrayList<Usuario>)q.getResultList();
 		}catch(Exception e){
 			System.out.println("no hay nadie");
 		}
