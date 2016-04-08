@@ -21,9 +21,9 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 	@Override
 	public void create(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			ArrayList<String> datos, String password) {
+			ArrayList<String> datos, String password, boolean admin) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password);
+		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password, boolean admin);
 		em.persist(user);
 		em.close();
 	}
