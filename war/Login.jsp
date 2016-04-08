@@ -25,9 +25,7 @@
 			<input type="text" placeholder="Usuario" name="user"
 			required="required">
 			<br> <input type="password" placeholder="Contraseña" name="password" required="required"><br>
-
-			<a href="login" class="button"> 
-			<input type="button" value="login"></a>
+			<input type="submit" value="login"></a>
 		</form>
 	</div>
 </body>

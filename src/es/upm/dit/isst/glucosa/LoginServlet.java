@@ -22,7 +22,8 @@ public class LoginServlet extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+	
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
 		GlucosaDAO dao = GlucosaDAOImpl.getInstance();
 		ArrayList<String> aux = null;
@@ -49,8 +50,8 @@ public class LoginServlet extends HttpServlet{
 				}
 			}
 			//NO LOGIN
-			RequestDispatcher	view =	req.getRequestDispatcher(url);
-			view.forward(req,	resp);
+			resp.sendRedirect("/isst_tfg_t4");
+			
 			System.out.println(url);
 			resp.getWriter().println(url + "url");
 		}
