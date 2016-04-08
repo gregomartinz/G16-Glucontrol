@@ -10,9 +10,10 @@ public class Usuario {
 	public String fechaDiagnostico;
 	public String fechaNacimiento;
 	public ArrayList<String> datos;
+	public String password;
 	public Usuario(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			ArrayList<String> datos) {
+			ArrayList<String> datos, String password) {
 		super();
 		this.dni = dni;
 		this.correo = correo;
@@ -21,12 +22,19 @@ public class Usuario {
 		this.fechaDiagnostico = fechaDiagnostico;
 		this.fechaNacimiento = fechaNacimiento;
 		this.datos = datos;
+		this.password = password;
 	}
 	public String getDni() {
 		return dni;
 	}
 	public void setDni(String dni) {
 		this.dni = dni;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getCorreo() {
 		return correo;
@@ -114,6 +122,11 @@ public class Usuario {
 			if (other.nombre != null)
 				return false;
 		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
 			return false;
 		return true;
 	}

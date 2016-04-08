@@ -23,9 +23,9 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 	@Override
 	public void create(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			ArrayList<String> datos) {
+			ArrayList<String> datos, String password) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos);
+		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password);
 		em.persist(user);
 		em.close();
 	}
@@ -55,6 +55,20 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 			lista = (ArrayList<Usuario>)q.getResultList();
 		}catch(Exception e){
 			System.out.println("no hay nadie de ese genero");
+		}
+		em.close();
+		return lista;
+	}
+	
+	@Override
+	public ArrayList<Usuario> read(){
+		ArrayList<Usuario> lista = new ArrayList<Usuario>();
+		EntityManager em = EMFService.get().createEntityManager();
+		Query q = em.createQuery("select m from Usuario m");
+		try{
+			lista = (ArrayList<Usuario>)q.getResultList();
+		}catch(Exception e){
+			System.out.println("no hay nadie");
 		}
 		em.close();
 		return lista;
