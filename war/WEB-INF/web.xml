@@ -4,15 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
-	<servlet>
-		<servlet-name>G16_Glucontrol</servlet-name>
-		<servlet-class>es.upm.dit.isst.glucosa.GlucosaServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>G16_Glucontrol</servlet-name>
-		<url-pattern>/g16_glucontrol</url-pattern>
-	</servlet-mapping>
-
+	
 	<servlet>
 		<servlet-name>Login</servlet-name>
 		<servlet-class>es.upm.dit.isst.glucosa.LoginServlet</servlet-class>
