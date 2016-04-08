@@ -21,28 +21,14 @@
 	</div>
 	<br>
 	<div class="login">
-		<form method="post" action="index.html">
+		<form method="post" action="/login">
 			<input type="text" placeholder="Usuario" name="user"
 			required="required"><br> <input type="password"
 			placeholder="Contraseña" name="password" required="required"><br>
 
-			<a href="login" class="button"> <input type="button" value="login"
-			href="login"></a>
+			<a href="login" class="button"> 
+			<input type="button" value="login" href="login"></a>
 		</form>
 	</div>
-	
-	<form method="post" action="index.html">
-        <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
-        <p><input type="password" name="password" value="" placeholder="Password"></p>
-        <p class="remember_me">
-          <label>
-            <input type="checkbox" name="remember_me" id="remember_me">
-            Remember me on this computer
-          </label>
-        </p>
-        <p class="submit"><input type="submit" name="commit" value="Login"></p>
-      </form>
-	
-	
 </body>
 </html>
