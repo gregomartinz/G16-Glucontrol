@@ -13,7 +13,7 @@
   <!-- Si estas autenticado (tienes usuario en la session) puedes acceder al formulario -->
   	<c:if test="${not empty user}">
   
-    <form action="/nuevaMedida" method="post" acceptcharset="utf-8" class="form-container">
+    <form action="/upload" method="post" acceptcharset="utf-8" class="form-container">
       <div class="form-title"><h2>Subida de controles</h2></div>
       <div class="form-title">Valor de glucosa</div>
         <input class="form-field" ="text" placeholder="Desayuno" name="glucosaDesayuno" id="glucosa" maxlength="5" autofocus class="campo"required>
