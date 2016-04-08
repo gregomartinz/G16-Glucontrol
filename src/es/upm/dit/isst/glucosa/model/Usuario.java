@@ -1,8 +1,19 @@
 package es.upm.dit.isst.glucosa.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Usuario {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Usuario implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
 	public String dni;
 	public String correo;
 	public String nombre;

@@ -17,6 +17,11 @@ import es.upm.dit.isst.glucosa.model.Usuario;
 
 public class LoginServlet extends HttpServlet{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		GlucosaDAO dao = GlucosaDAOImpl.getInstance();
 		
@@ -30,8 +35,6 @@ public class LoginServlet extends HttpServlet{
 		
 		String url = "";
 		
-		
-		
 		List<Usuario> users =  dao.read();
 		for(Usuario u: users) {
 			if (u.getNombre() != null){
@@ -40,14 +43,10 @@ public class LoginServlet extends HttpServlet{
 					//LOGIN
 				}
 			}
-			
 			//NO LOGIN
 			RequestDispatcher	view =	req.getRequestDispatcher(url);
 			view.forward(req,	resp);
 			resp.getWriter().println(url + "url");
 		}
-		
-		
 	}
-
 }

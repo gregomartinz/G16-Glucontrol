@@ -26,7 +26,7 @@
 			placeholder="Contraseña" name="password" required="required"><br>
 
 		<a href="login" class="button"> <input type="button" value="login"
-			href="Index.jsp"></a>
+			href="login"></a>
 	</div>
 </body>
 </html>
