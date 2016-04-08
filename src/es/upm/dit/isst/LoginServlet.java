@@ -27,16 +27,16 @@ public class LoginServlet extends HttpServlet{
 		RequestDispatcher	view =	req.getRequestDispatcher("Index.jsp");
 		view.forward(req,	resp);
 		
-//		List<Usuario> users ;
-//		for(Usuario u: users) {
-//			if (u.getName != null){
-//				if (pass == u.getPass()){
-//					//LOGIN
-//				}
-//			}
-//			//NO LOGIN
-//			resp.getWriter().println(t.toString(t));
-//		}
+		List<Usuario> users = dao. ;
+		for(Usuario u: users) {
+			if (u.getNombre() != null){
+				if (pass == u.getPassword()){
+					//LOGIN
+				}
+			}
+			//NO LOGIN
+			//resp.getWriter().println(t.toString(t));
+		}
 		
 		
 	}

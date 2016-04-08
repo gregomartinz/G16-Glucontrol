@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import es.dit.upm.isst.t4.dao.EMFService;
-
 import es.upm.dit.isst.glucosa.model.Usuario;
 
 public class GlucosaDAOImpl implements GlucosaDAO{
@@ -32,14 +30,14 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 
 	@Override
 	public Usuario readDni(String dni) {
-		Usuario user;
+		Usuario user = null;
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em.createQuery("select m from Usuario m where m.dni = :dni");
 		q.setParameter("dni", dni);
 		try{
 			user = (Usuario)q.getSingleResult();
 		}catch(Exception e){
-			System.out.pritnln("no hay nadie con ese dni");
+			System.out.println("no hay nadie con ese dni");
 		}
 		em.close();
 		return user;
