@@ -12,6 +12,7 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 	private static GlucosaDAOImpl instance;
 	private GlucosaDAOImpl () {
 	}
+	
 	public static GlucosaDAOImpl getInstance() {
 		if (instance == null)
 			instance = new GlucosaDAOImpl();
@@ -21,9 +22,9 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 	@Override
 	public void create(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			ArrayList<String> datos, String password) {
+			ArrayList<String> datos, String password, boolean admin) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password);
+		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password, admin);
 		em.persist(user);
 		em.close();
 	}
@@ -92,6 +93,14 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 			System.out.println("no se ha podido borrar");
 		}
 		em.close();		
+	}
+
+	@Override
+	public void create(String dni, String correo, String nombre, String genero,
+			String fechaDiagnostico, String fechaNacimiento,
+			ArrayList<String> datos, String password) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

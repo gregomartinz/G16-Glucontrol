@@ -11,9 +11,10 @@ public class Usuario {
 	public String fechaNacimiento;
 	public ArrayList<String> datos;
 	public String password;
+	public boolean admin;
 	public Usuario(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			ArrayList<String> datos, String password) {
+			ArrayList<String> datos, String password, boolean admin) {
 		super();
 		this.dni = dni;
 		this.correo = correo;
@@ -23,6 +24,7 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 		this.datos = datos;
 		this.password = password;
+		this.admin = admin;
 	}
 	public String getDni() {
 		return dni;

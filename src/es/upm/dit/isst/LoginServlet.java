@@ -1,6 +1,7 @@
 package es.upm.dit.isst;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -17,25 +18,33 @@ import es.upm.dit.isst.glucosa.model.Usuario;
 public class LoginServlet extends HttpServlet{
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		GlucosaDAO dao;
+		GlucosaDAO dao = GlucosaDAOImpl.getInstance();
+		
+		ArrayList<String> aux = null;
+		dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", aux, "admin", true);
 		
 		String name = req.getParameter("nombre");
 		String pass = req.getParameter("password");
 		
 		HttpSession session = req.getSession(false);
 		
-		RequestDispatcher	view =	req.getRequestDispatcher("Index.jsp");
-		view.forward(req,	resp);
+		String url = "";
 		
-		List<Usuario> users = dao. ;
+		
+		
+		List<Usuario> users =  dao.read();
 		for(Usuario u: users) {
 			if (u.getNombre() != null){
 				if (pass == u.getPassword()){
+					url = "Index.jsp";
 					//LOGIN
 				}
 			}
+			
 			//NO LOGIN
-			//resp.getWriter().println(t.toString(t));
+			RequestDispatcher	view =	req.getRequestDispatcher(url);
+			view.forward(req,	resp);
+			resp.getWriter().println(url + "url");
 		}
 		
 		
