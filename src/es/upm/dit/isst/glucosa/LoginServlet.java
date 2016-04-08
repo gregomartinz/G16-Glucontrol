@@ -23,14 +23,15 @@ public class LoginServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
 		GlucosaDAO dao = GlucosaDAOImpl.getInstance();
-		
 		ArrayList<String> aux = null;
 		dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", aux, "admin", true);
 		
 		String name = req.getParameter("user");
+		System.out.println(dao.read());
 		String pass = req.getParameter("password");
-		
+		System.out.println(pass);
 		HttpSession session = req.getSession(false);
 		
 		String url = "asas";
