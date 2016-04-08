@@ -95,7 +95,7 @@ public class Usuario implements Serializable{
 		return "Usuario [dni=" + dni + ", correo=" + correo + ", nombre="
 				+ nombre + ", genero=" + genero + ", fechaDiagnostico="
 				+ fechaDiagnostico + ", fechaNacimiento=" + fechaNacimiento
-				+ ", datos=" + datos + "]";
+				+ ", datos=" + datos + ", pass=" + password + "]";
 	}
 	@Override
 	public boolean equals(Object obj) {

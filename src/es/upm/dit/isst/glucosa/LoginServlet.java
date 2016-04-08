@@ -32,28 +32,26 @@ public class LoginServlet extends HttpServlet{
 		String name = req.getParameter("user");
 		System.out.println(dao.read().toString());
 		String pass = req.getParameter("password");
-		System.out.println(pass);
+		
 		HttpSession session = req.getSession(false);
 		
 		String url = "asas";
 		
 		List<Usuario> users =  dao.read();
-		for(Usuario t: users) {
-			resp.getWriter().println(t.toString());
-		}
 		
 		for(Usuario u: users) {
-			if (u.getNombre() != null && u.getNombre() == name){
-				if (pass == u.getPassword()){
-					url = "Index.jsp";
+			if (u.getNombre().equals(name)){
+				System.out.println("Hola amigo");
+				if (u.getPassword().equals(pass)){
+					url = "hola";
 					//LOGIN
 				}
 			}
-			//NO LOGIN
-			resp.sendRedirect("/isst_tfg_t4");
-			
-			System.out.println(url);
-			resp.getWriter().println(url + "url");
 		}
+		//NO LOGIN
+		resp.sendRedirect(url);
+		
+		System.out.println(url);
+		resp.getWriter().println(url + "url");
 	}
 }
