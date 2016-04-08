@@ -30,14 +30,14 @@ public class LoginServlet extends HttpServlet{
 		dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", aux, "admin", true);
 		
 		String name = req.getParameter("user");
-		System.out.println(dao.read());
+		System.out.println(dao.read().toString());
 		String pass = req.getParameter("password");
 		System.out.println(pass);
 		HttpSession session = req.getSession(false);
 		
 		String url = "asas";
 		
-		List<Usuario> users =  dao.read();
+		ArrayList<Usuario> users =  dao.read();
 		for(Usuario t: users) {
 			resp.getWriter().println(t.toString());
 		}

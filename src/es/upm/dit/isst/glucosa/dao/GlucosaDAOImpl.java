@@ -1,6 +1,7 @@
 package es.upm.dit.isst.glucosa.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -10,6 +11,7 @@ import es.upm.dit.isst.glucosa.model.Usuario;
 public class GlucosaDAOImpl implements GlucosaDAO{
 
 	private static GlucosaDAOImpl instance;
+	
 	private GlucosaDAOImpl () {
 	}
 	
@@ -23,6 +25,7 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 	public void create(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
 			ArrayList<String> datos, String password, boolean admin) {
+		
 		EntityManager em = EMFService.get().createEntityManager();
 		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password, admin);
 
@@ -66,7 +69,7 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em.createQuery("select m from Usuario m");
 		try{
-			lista = (ArrayList<Usuario>)q.getResultList();
+			ArrayList<Usuario> lista = (ArrayList<Usuario>) q.getResultList();
 		}catch(Exception e){
 			System.out.println("no hay nadie");
 		}
