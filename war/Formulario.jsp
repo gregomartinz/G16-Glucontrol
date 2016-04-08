@@ -16,13 +16,13 @@
     <form action="/nuevaMedida" method="post" acceptcharset="utf-8" class="form-container">
       <div class="form-title"><h2>Subida de controles</h2></div>
       <div class="form-title">Valor de glucosa</div>
-        <input class="form-field" ="text" placeholder="Desayuno" name="glucosa" id="glucosa" maxlength="5" autofocus class="campo"required>
-        <input class="form-field" ="text" placeholder="Comida" name="glucosa" id="glucosa" maxlength="5" autofocus class="campo"required>
-       <input class="form-field" ="text" placeholder="Cena" name="glucosa" id="glucosa" maxlength="5" autofocus class="campo"required>
+        <input class="form-field" ="text" placeholder="Desayuno" name="glucosaDesayuno" id="glucosa" maxlength="5" autofocus class="campo"required>
+        <input class="form-field" ="text" placeholder="Comida" name="glucosaComida" id="glucosa" maxlength="5" autofocus class="campo"required>
+       <input class="form-field" ="text" placeholder="Cena" name="glucosaCena" id="glucosa" maxlength="5" autofocus class="campo"required>
       <div class="form-title">Hora de las medidas</div>
-        <input class="form-field" type="time" placeholder="hh:mm"name="hora" id="hora" class="campo" required>
-        <input class="form-field" type="time" placeholder="hh:mm"name="hora" id="hora" class="campo" required>
-        <input class="form-field" type="time" placeholder="hh:mm"name="hora" id="hora" class="campo" required>
+        <input class="form-field" type="time" placeholder="hh:mm"name="horaDesayuno" id="hora" class="campo" required>
+        <input class="form-field" type="time" placeholder="hh:mm"name="horaComida" id="hora" class="campo" required>
+        <input class="form-field" type="time" placeholder="hh:mm"name="horaCena" id="hora" class="campo" required>
       <div class="form-title">Fecha de la medida</div>
         <input class="form-field" type="text" size="20" placeholder="dd" maxlength="2" id="fecha_dia" name="fecha_dia" required>
         <select class="form-field" id="fecha_mes" name="fecha_mes">
