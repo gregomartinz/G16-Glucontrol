@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet{
 		
 		String url = "asas";
 		
-		ArrayList<Usuario> users =  dao.read();
+		List<Usuario> users =  dao.read();
 		for(Usuario t: users) {
 			resp.getWriter().println(t.toString());
 		}
