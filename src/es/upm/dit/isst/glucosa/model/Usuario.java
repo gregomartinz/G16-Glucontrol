@@ -11,7 +11,11 @@ public class Usuario {
 	public String fechaNacimiento;
 	public ArrayList<String> datos;
 	public String password;
+<<<<<<< HEAD
 	public boolean admin;
+=======
+	public boolean admin
+>>>>>>> b4e262c37c5dbef2fd87fb1c208681c9b4431c71
 	public Usuario(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
 			ArrayList<String> datos, String password, boolean admin) {
@@ -25,6 +29,12 @@ public class Usuario {
 		this.datos = datos;
 		this.password = password;
 		this.admin = admin;
+<<<<<<< HEAD
+=======
+	}
+	public boolean isAdmin(){
+		return this.admin;
+>>>>>>> b4e262c37c5dbef2fd87fb1c208681c9b4431c71
 	}
 	public String getDni() {
 		return dni;

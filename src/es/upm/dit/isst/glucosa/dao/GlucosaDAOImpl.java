@@ -24,7 +24,11 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 			String fechaDiagnostico, String fechaNacimiento,
 			ArrayList<String> datos, String password, boolean admin) {
 		EntityManager em = EMFService.get().createEntityManager();
+<<<<<<< HEAD
 		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password, admin);
+=======
+		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password, boolean admin);
+>>>>>>> b4e262c37c5dbef2fd87fb1c208681c9b4431c71
 		em.persist(user);
 		em.close();
 	}
