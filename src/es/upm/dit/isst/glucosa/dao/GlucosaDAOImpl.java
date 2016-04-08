@@ -49,16 +49,11 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 	}
 	
 	@Override
-	public ArrayList<Usuario> readGenero(String genero) {
-		ArrayList<Usuario> lista = new ArrayList<Usuario>();
+	public List<Usuario> readGenero(String genero) {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em.createQuery("select m from Usuario m where m.genero = :genero");
 		q.setParameter("genero", genero);
-		try{
-			lista = (ArrayList<Usuario>)q.getResultList();
-		}catch(Exception e){
-			System.out.println("no hay nadie de ese genero");
-		}
+		List<Usuario> lista = q.getResultList();
 		em.close();
 		return lista;
 	}
