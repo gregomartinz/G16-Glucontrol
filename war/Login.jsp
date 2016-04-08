@@ -23,11 +23,11 @@
 	<div class="login">
 		<form method="post" action="/login">
 			<input type="text" placeholder="Usuario" name="user"
-			required="required"><br> <input type="password"
-			placeholder="Contraseña" name="password" required="required"><br>
+			required="required">
+			<br> <input type="password" placeholder="Contraseña" name="password" required="required"><br>
 
 			<a href="login" class="button"> 
-			<input type="button" value="login" href="login"></a>
+			<input type="button" value="login"></a>
 		</form>
 	</div>
 </body>
