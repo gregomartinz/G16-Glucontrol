@@ -28,16 +28,20 @@ public class LoginServlet extends HttpServlet{
 		ArrayList<String> aux = null;
 		dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", aux, "admin", true);
 		
-		String name = req.getParameter("nombre");
+		String name = req.getParameter("user");
 		String pass = req.getParameter("password");
 		
 		HttpSession session = req.getSession(false);
 		
-		String url = "";
+		String url = "asas";
 		
 		List<Usuario> users =  dao.read();
+		for(Usuario t: users) {
+			resp.getWriter().println(t.toString());
+		}
+		
 		for(Usuario u: users) {
-			if (u.getNombre() != null){
+			if (u.getNombre() != null && u.getNombre() == name){
 				if (pass == u.getPassword()){
 					url = "Index.jsp";
 					//LOGIN
@@ -46,6 +50,7 @@ public class LoginServlet extends HttpServlet{
 			//NO LOGIN
 			RequestDispatcher	view =	req.getRequestDispatcher(url);
 			view.forward(req,	resp);
+			System.out.println(url);
 			resp.getWriter().println(url + "url");
 		}
 	}
