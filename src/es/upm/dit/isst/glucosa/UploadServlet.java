@@ -1,4 +1,4 @@
-package es.upm.dit.isst;
+package es.upm.dit.isst.glucosa;
 
 import java.io.IOException;
 import java.util.ArrayList;
