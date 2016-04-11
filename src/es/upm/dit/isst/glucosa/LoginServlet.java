@@ -2,7 +2,6 @@ package es.upm.dit.isst.glucosa;
 
 import java.io.IOException;
 import java.util.List;
-import javax.jdo.annotations.Transactional;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +12,7 @@ import es.upm.dit.isst.glucosa.dao.GlucosaDAOImpl;
 import es.upm.dit.isst.glucosa.model.Usuario;
 
 public class LoginServlet extends HttpServlet{
+
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		
-		String url = "asas";
+		String url = "Login.jsp";
 		
 		List<Usuario> users =  dao.read();
 		
@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet{
 			if (u.getNombre().equals(name)){
 				if (u.getPassword().equals(pass)){
 					session.setAttribute("usuario", name);
-					 session.setAttribute("dni",u.getDni());  
+					session.setAttribute("dni",u.getDni());  
 					url = "Index.jsp";
 					//LOGIN
 				}

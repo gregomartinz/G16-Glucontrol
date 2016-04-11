@@ -3,8 +3,6 @@ package es.upm.dit.isst.glucosa.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
