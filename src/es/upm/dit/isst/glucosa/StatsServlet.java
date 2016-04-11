@@ -33,34 +33,35 @@ public class StatsServlet extends HttpServlet{
 		ArrayList<String> stats = new ArrayList<String>();
 		ArrayList<String> aux = dao.readDni((String) req.getSession().getAttribute("dni")).getDatos();
 
-		resp.getWriter().print(aux.get(0).split("-").toString());
-
 		for (String s : aux) {
 			fecha = s.split("-f");
-			
 			m1 = fecha[1].split("de-"); 
-			m2 = fecha[1].split("co-"); 
-			m3 = fecha[1].split("ce-"); 
-			//resp.getWriter().print(m1);
-			//resp.getWriter().print(m2);
-			//resp.getWriter().print(m3);
+			m2 = m1[1].split("co-"); 
+			m3 = m2[1].split("ce-"); 
+			hora1 = m1[0].split("--");
+			m1[0] = hora1[0];
+			hora1[0] = hora1[1];
 			
-
-//			hora1 = m1[1].split("--");
-//			hora2 = m2[1].split("--");
-//			hora3 = m3[1].split("--");
-//			stats.add(fecha[0]);
-//			stats.add(hora1[0]);
-//			stats.add(m1[0]);
-//			stats.add(hora2[0]);
-//			stats.add(m2[0]);
-//			stats.add(hora3[0]);
-//			stats.add(m3[0]);
+			hora2 = m2[0].split("--");
+			m2[0] = hora2[0];
+			hora2[0] = hora2[1];
+			
+			hora3 = m3[0].split("--");
+			m3[0] = hora3[0];
+			hora3[0] = hora3[1];
+			
+			stats.add(fecha[0]);
+			stats.add(hora1[0]);
+			stats.add(m1[0]);
+			stats.add(hora2[0]);
+			stats.add(m2[0]);
+			stats.add(hora3[0]);
+			stats.add(m3[0]);
 		}
-		//resp.getWriter().print(stats);
-		req.getSession().setAttribute("stats", stats);
 		
-//		
+		resp.getWriter().print(stats);
+		req.getSession().setAttribute("stats", stats);
+	
 //		RequestDispatcher view = req.getRequestDispatcher("Stats.jsp");
 //		view.forward(req, resp);
 	
