@@ -19,11 +19,11 @@ public class LoginServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
 		GlucosaDAO dao = GlucosaDAOImpl.getInstance();
-		dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", null, "admin", true);
+		//dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", null, "admin", true);
 		String name = req.getParameter("user");
 		String pass = req.getParameter("password");
 		
-		HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession();
 		
 		String url = "asas";
 		
@@ -32,6 +32,8 @@ public class LoginServlet extends HttpServlet{
 		for(Usuario u: users) {
 			if (u.getNombre().equals(name)){
 				if (u.getPassword().equals(pass)){
+					session.setAttribute("usuario", name);
+					 session.setAttribute("dni",u.getDni());  
 					url = "Index.jsp";
 					//LOGIN
 				}

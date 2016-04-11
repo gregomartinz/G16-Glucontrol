@@ -21,8 +21,8 @@
 	<br>
 	<div class="login">
 		<form method="post" action="/login">
-			<input type="text" placeholder="Usuario" name="user" required="required">
-			<br> <input type="password" placeholder="Contraseña" name="password" required="required"><br>
+			<input type="text" placeholder="Usuario" name="user" autofocus required="required">
+			<br> <input type="password" placeholder="Contraseña" name="password" autofacus required="required"><br>
 			<input type="submit" value="login"></a>
 		</form>
 	</div>

@@ -8,10 +8,11 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Subida de control</title>
-  <link rel="stylesheet" type"text/css" href="css/formulario.css">
+  <link rel="stylesheet" type"text/css" href="css/style.css">
+</head>
   <body>
   <!-- Si estas autenticado (tienes usuario en la session) puedes acceder al formulario -->
-  	<c:if test="${not empty user}">
+  	
   
     <form action="/upload" method="post" acceptcharset="utf-8" class="form-container">
       <div class="form-title"><h2>Subida de controles</h2></div>
@@ -46,13 +47,13 @@
           </div>
           <div class="form-title">
             <input class="form-title" type="radio" name="descripcion" value="bajada" /> He sufrido una bajada de azúcar con valor 
-              <input class="form-field"type="text" placeholder="medición" name="glucosa" id="glucosa" maxlength="5" autofocus class="campo"required>
-              <input class="form-field" type="time" placeholder="hh:mm"name="hora" id="hora" class="campo" required>
+              <input class="form-field"type="text" placeholder="medición" name="glucosa" id="glucosa" maxlength="5" autofocus class="campo">
+              <input class="form-field" type="time" placeholder="hh:mm"name="hora" id="hora" class="campo" >
           </div>
           <div class="form-title">
             <input class="form-title" type="radio" name="descripcion" value="subida" /> He sufrido una subida de azúcar
-              <input class="form-field" type="text" placeholder="medición" name="glucosa" id="glucosa" maxlength="5" autofocus class="campo"required>
-              <input class="form-field" type="time" placeholder="hh:mm"name="hora" id="hora" class="campo" required>
+              <input class="form-field" type="text" placeholder="medición" name="glucosa" id="glucosa" maxlength="5" autofocus class="campo">
+              <input class="form-field" type="time" placeholder="hh:mm"name="hora" id="hora" class="campo">
           </div>
           <p class="form-title">Adjuntar fichero</p>
             <input class="form-title" type="file" name="fichero">
@@ -60,6 +61,5 @@
         <input class="submit-button" type="submit" value="Submit" />
       </div>
     </form>
-    </c:if>
   </body>
 </html>

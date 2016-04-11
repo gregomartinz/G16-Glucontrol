@@ -22,12 +22,12 @@
   <!-- header -->
   <header>
     <div class="container">
-    	<h1><a href="index.html">GluControl</a></h1>
+    	<h1><a href="Index.jsp">GluControl</a></h1>
       <nav>
         <ul>
-        	<li><a href="index.html" class="current">Home</a></li>
+        	<li><a href="Index.jsp" class="current">Home</a></li>
           <li><a href="Formulario.jsp">Subidas</a></li>
-          <li><a href="stats.html">Estadísticas</a></li>
+          <li><a href="/stats">Estadísticas</a></li>
           <li><a href="profile.html">Pefil</a></li>
         </ul>
       </nav>
