@@ -42,7 +42,7 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 		try{
 			user = (Usuario)q.getSingleResult();
 		}catch(Exception e){
-			System.out.println("no hay nadie con ese dni");
+			//System.out.println("no hay nadie con ese dni");
 		}
 		em.close();
 		return user;
@@ -77,7 +77,7 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 		try{
 			em.merge(user);
 		}catch(Exception e){
-			System.out.println("no se ha podido actualizar");
+			//System.out.println("no se ha podido actualizar");
 		}
 		em.close();
 	}
@@ -88,7 +88,7 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 		try{
 			em.remove(user);
 		}catch(Exception e){
-			System.out.println("no se ha podido borrar");
+			//System.out.println("no se ha podido borrar");
 		}
 		em.close();		
 	}
