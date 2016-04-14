@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.appengine.labs.repackaged.org.json.JSONArray;
-import com.orsoncharts.util.json.parser.JSONParser;
-
 import es.upm.dit.isst.glucosa.dao.GlucosaDAO;
 import es.upm.dit.isst.glucosa.dao.GlucosaDAOImpl;
 
@@ -63,19 +60,16 @@ public class StatsServlet extends HttpServlet{
 			statsMedidas.add(m3[0]);
 		}
 		
-		
-		JSONArray jsfecha = new JSONArray(statsFecha);
-		JSONArray jsmedida = new JSONArray(statsMedidas);
-		JSONArray jshora = new JSONArray(statsHoras);
 
 		
 //		resp.getWriter().print(stats);
-		req.getSession().setAttribute("statsFecha", jsfecha);
-		req.getSession().setAttribute("statsMedidas", jsmedida);
-		req.getSession().setAttribute("statsHoras", jshora);
+		req.getSession().setAttribute("statsFecha",statsFecha);
+		req.getSession().setAttribute("statsMedidas", statsMedidas);
+		req.getSession().setAttribute("statsHoras", statsHoras);
 
 		RequestDispatcher view = req.getRequestDispatcher("Stats.jsp");
 		view.forward(req, resp);
 	
 	}
 }
+

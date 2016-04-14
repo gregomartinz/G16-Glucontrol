@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
 		GlucosaDAO dao = GlucosaDAOImpl.getInstance();
-		//dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", null, "admin", true);
+//		dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", null, "admin", true);
 		String name = req.getParameter("user");
 		String pass = req.getParameter("password");
 		
