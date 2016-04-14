@@ -92,7 +92,6 @@
 		    var f = [] = jsf.split(",");
 		    var m = [] = jsm.split(",");
 		    var h = [] = jsh.split(",");
-		    alert(m[0]);
 		   
 		  function drawChart() {
 		
