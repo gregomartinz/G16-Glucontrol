@@ -1,8 +1,8 @@
-%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@page import="com.google.appengine.labs.repackaged.org.json.JSONArray"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -43,7 +43,7 @@
         <ul>
           <li><a href="index.html" class="current">Home</a></li>
           <li><a href="upload.html">Subida</a></li>
-          <li><a href="stats.html">Estadísticas</a></li>
+          <li><a href="stats.html">EstadÃ­sticas</a></li>
           <li><a href="profile.html">Pefil</a></li>
         </ul>
       </nav>
@@ -53,17 +53,31 @@
   <div class="main-box">
     <div class="container">
       <div class="inside">
-        <h2>Stadísticas sobre  <span>Controles de glucosa</span></h2>
+        <h2>StadÃ­sticas sobre  <span>Controles de glucosa</span></h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         
    
      
 	<%
 		
-		JSONArray f = (JSONArray)session.getAttribute("statsFecha");
-		JSONArray m = (JSONArray)session.getAttribute("statsMedida");
-		JSONArray h = (JSONArray)session.getAttribute("statsHora");
-
+		ArrayList<String> f = (ArrayList<String>)session.getAttribute("statsFecha");
+		ArrayList<String> m = (ArrayList<String>)session.getAttribute("statsMedidas");
+		ArrayList<String> h = (ArrayList<String>)session.getAttribute("statsHoras");
+		String fs = "";
+		String hs = "";
+		String ms = "";
+		for(String s: f){
+			fs += s + ","; 
+		}
+		for(String s: h){
+			hs += s + ","; 
+		}
+		for(String s: m){
+			ms += s + ","; 
+		}
+		System.out.println(fs);
+		System.out.println(hs);
+		System.out.println(ms);
 
 	%>
 	<script type="text/javascript">
@@ -72,22 +86,14 @@
 		    var jsf = "<%=f%>";
 		    var jsm = "<%=m%>";
 		    var jsh = "<%=h%>";
-		    var parsedf = JSON.parse(jsf);
-		    var parsedm = JSON.parse(jsm);
-		    var parsedh = JSON.parse(jsh);
-		    var f = [];
-		    var m = [];
-		    var h = [];
-	
-		    for(var x in parsedf){
-		      	f.push(parsedf[x]);
-		    }
-		    for(var x in parsedm){
-			    m.push(parsedf[m]);
-		    }
-		    for(var x in parsedh){
-			    h.push(parsedf[h]);
-		    }
+		    jsf = jsf.substring(1);
+		    jsh = jsh.substring(1);
+		    jsm = jsm.substring(1);
+		    var f = [] = jsf.split(",");
+		    var m = [] = jsm.split(",");
+		    var h = [] = jsh.split(",");
+		    alert(m[0]);
+		   
 		  function drawChart() {
 		
 		    var data = new google.visualization.DataTable();
@@ -97,9 +103,10 @@
 		    data.addColumn('number', 'Cena');
 		
 		    data.addRows([
-		      [1,  m[0], m[3], m[6]],
-		      [2,  m[1], m[4], m[7]],
-		      [3,  m[2], m[5], m[8]]
+		      [1,  parseInt(m[0]), parseInt(m[1]), parseInt(m[2])],
+		      [2,  parseInt(m[3]), parseInt(m[4]), parseInt(m[5])],
+		      [3,  parseInt(m[6]), parseInt(m[7]), parseInt(m[8])],
+		      [4,  parseInt(m[9]), parseInt(m[10]), parseInt(m[11])]
 		    ]);
 		
 		    var options = {
@@ -132,5 +139,7 @@
   <script type="text/javascript"> Cufon.now(); </script>
 </body>
 </html>
+
+
 
 
