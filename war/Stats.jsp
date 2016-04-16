@@ -44,7 +44,7 @@
           <li><a href="Index.jsp" class="current">Home</a></li>
           <li><a href="Formulario.jsp">Subida</a></li>
           <li><a href="/stats">Estadísticas</a></li>
-          <li><a href="profile.html">Pefil</a></li>
+          <li><a href="profile.html">Perfil</a></li>
         </ul>
       </nav>
     </div>
@@ -91,8 +91,7 @@
 		    var f = [] = jsf.split(",");
 		    var m = [] = jsm.split(",");
 		    var h = [] = jsh.split(",");
-		    alert(m[0]);
-		   
+		    
 		  function drawChart() {
 		
 		    var data = new google.visualization.DataTable();

@@ -28,7 +28,7 @@
         	<li><a href="Index.jsp" class="current">Home</a></li>
           <li><a href="Formulario.jsp">Subidas</a></li>
           <li><a href="/stats">Estadísticas</a></li>
-          <li><a href="profile.html">Pefil</a></li>
+          <li><a href="profile.html">Perfil</a></li>
         </ul>
       </nav>
     </div>
