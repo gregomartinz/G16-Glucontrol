@@ -55,7 +55,7 @@
               <li>
               	<figure><strong>30</strong>Mayo</figure>
                 <h3><a href="#">Inventore veritatis et quasi</a></h3>
-                Architecto beatae vitae dicta sunt explicabo <a href="#">...</a>
+                Architecito beatae vitae dicta sunt explicabo <a href="#">...</a>
               </li>
               <li>
               	<figure><strong>21</strong>Mayo</figure>
