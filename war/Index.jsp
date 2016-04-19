@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,10 +10,10 @@
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
   <script type="text/javascript" src="js/jquery-1.4.2.min.js" ></script>
-  <script type="text/javascript" src="js/cufon-yui.js"></script>
+
   <script type="text/javascript" src="js/Humanst521_BT_400.font.js"></script>
   <script type="text/javascript" src="js/Humanst521_Lt_BT_400.font.js"></script>
-	<script type="text/javascript" src="js/roundabout.js"></script>
+  <script type="text/javascript" src="js/roundabout.js"></script>
   <script type="text/javascript" src="js/roundabout_shapes.js"></script>
   <script type="text/javascript" src="js/gallery_init.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
@@ -25,10 +26,10 @@
     	<h1><a href="Index.jsp">GluControl</a></h1>
       <nav>
         <ul>
-        	<li><a href="Index.jsp" class="current">Home</a></li>
+          <li><a href="Index.jsp" class="current">Home</a></li>
           <li><a href="Formulario.jsp">Subidas</a></li>
           <li><a href="/stats">Estadísticas</a></li>
-          <li><a href="profile.html">Perfil</a></li>
+          <li><a href="Profile.jsp">Perfil</a></li>
         </ul>
       </nav>
     </div>

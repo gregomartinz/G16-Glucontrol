@@ -8,9 +8,25 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Subida de control</title>
-  <link rel="stylesheet" type"text/css" href="css/style.css">
+  <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 </head>
   <body>
+  
+  
+  <header>
+    <div class="container">
+      <h1><a href="index.html">GluControl</a></h1>
+      <nav>
+        <ul>
+          <li><a href="Index.jsp">Home</a></li>
+          <li><a href="Formulario.jsp" class="current">Subida</a></li>
+          <li><a href="/stats" >Estadísticas</a></li>
+          <li><a href="Profile.jsp">Perfil</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
   <!-- Si estas autenticado (tienes usuario en la session) puedes acceder al formulario -->
   	
   

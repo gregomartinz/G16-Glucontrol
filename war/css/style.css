@@ -245,12 +245,12 @@ header nav ul li {
 }
 
 header nav ul li a {
-	font-size: 22px;
+	font-size: 20px;
 	color: #fff;
 	height: 67px;
 	line-height: 67px;
 	text-decoration: none;
-	width: 101px;
+	width: 150px;
 	text-align: center;
 	float: left;
 	background: #433b8f;

@@ -33,6 +33,8 @@ public class ProfileServlet extends HttpServlet{
 			user.setFechaDiagnostico(fechaD);	
 		}
 		dao.update(user);
+		req.setAttribute("fechaD", fechaD);
+		req.setAttribute("nombre", nombre);
 		RequestDispatcher view = req.getRequestDispatcher("Index.jsp");
 		view.forward(req, resp);
 	}

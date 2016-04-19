@@ -13,7 +13,6 @@
 <link rel="shortcut icon" href="img/favicon.ico" type="favicon/ico" />
   
   <script type="text/javascript" src="js/jquery-1.4.2.min.js" ></script>
-  <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/Humanst521_BT_400.font.js"></script>
   <script type="text/javascript" src="js/Humanst521_Lt_BT_400.font.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
@@ -31,10 +30,10 @@
       <h1><a href="index.html">GluControl</a></h1>
       <nav>
         <ul>
-          <li><a href="Index.jsp" class="current">Home</a></li>
+          <li><a href="Index.jsp">Home</a></li>
           <li><a href="Formulario.jsp">Subida</a></li>
           <li><a href="/stats">Estadísticas</a></li>
-          <li><a href="Profile.jsp">Perfil</a></li>
+          <li><a href="Profile.jsp" class="current">Perfil</a></li>
         </ul>
       </nav>
     </div>
