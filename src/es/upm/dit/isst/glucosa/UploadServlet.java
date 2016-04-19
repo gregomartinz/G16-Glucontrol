@@ -1,15 +1,29 @@
 package es.upm.dit.isst.glucosa;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import es.upm.dit.isst.glucosa.dao.GlucosaDAO;
 import es.upm.dit.isst.glucosa.dao.GlucosaDAOImpl;
 import es.upm.dit.isst.glucosa.model.Usuario;
+
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 public class UploadServlet extends HttpServlet{
 
@@ -41,6 +55,18 @@ public class UploadServlet extends HttpServlet{
 		Usuario user = dao.readDni(dni);
 		ArrayList<String> datos = user.getDatos();
 		datos.add(formato_dato);
+		
+		int d = Integer.parseInt(desayuno);
+		int co = Integer.parseInt(comida);
+		int ce = Integer.parseInt(cena);
+		if (d > 100 || co > 100 || ce > 100) {
+			try {
+				mail(user.correo);
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
+		}	
+	
 
 		user.setDatos(datos);
 		dao.update(user);
@@ -51,6 +77,21 @@ public class UploadServlet extends HttpServlet{
 		RequestDispatcher view = req.getRequestDispatcher("Index.jsp");
 		view.forward(req, resp);
 		
+	}
+	
+	private void mail(String correo) throws UnsupportedEncodingException, MessagingException{
+		Properties props = new Properties();
+	    Session session = Session.getDefaultInstance(props, null);
+
+	    String msgBody = "El nivel de glucosa del paciente es muy alto";
+	    
+		Message msg = new MimeMessage(session);
+	    msg.setFrom(new InternetAddress("gregomartinz@gmail.com", "Example.com Admin"));
+	    msg.addRecipient(Message.RecipientType.TO,
+	     new InternetAddress(correo, "Mr. User"));
+	    msg.setSubject("GluControl");
+	    msg.setText(msgBody);
+	    Transport.send(msg);
 	}
 
 }
