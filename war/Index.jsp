@@ -11,8 +11,8 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+  
   <script type="text/javascript" src="js/jquery-1.4.2.min.js" ></script>
-
   <script type="text/javascript" src="js/Humanst521_BT_400.font.js"></script>
   <script type="text/javascript" src="js/Humanst521_Lt_BT_400.font.js"></script>
   <script type="text/javascript" src="js/roundabout.js"></script>
