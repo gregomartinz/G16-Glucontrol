@@ -2,6 +2,7 @@ package es.upm.dit.isst.glucosa;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 

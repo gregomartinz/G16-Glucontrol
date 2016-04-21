@@ -2,6 +2,7 @@ package es.upm.dit.isst.glucosa.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,13 +19,13 @@ public class Usuario implements Serializable{
 	public String genero;
 	public String fechaDiagnostico;
 	public String fechaNacimiento;
-	public ArrayList<String> datos;
+	public HashMap<Integer, String> datos;
 	public String password;
 	public boolean admin;
 
 	public Usuario(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			ArrayList<String> datos, String password, boolean admin) {
+			HashMap<Integer, String> datos, String password, boolean admin) {
 		super();
 		this.dni = dni;
 		this.correo = correo;
@@ -82,10 +83,10 @@ public class Usuario implements Serializable{
 	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	public ArrayList<String> getDatos() {
+	public HashMap<Integer, String> getDatos() {
 		return datos;
 	}
-	public void setDatos(ArrayList<String> datos) {
+	public void setDatos(HashMap<Integer, String> datos) {
 		this.datos = datos;
 	}
 	@Override
