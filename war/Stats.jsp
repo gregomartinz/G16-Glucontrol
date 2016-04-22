@@ -70,10 +70,8 @@
 			Long key = (Long)it.next();
 			Date date = new Date(key);
 			fechas += date.getDate() + "/" + date.getMonth() + "/"+date.getYear() + ",";
-			datos += stats.get(key);
+			datos += stats.get(key); 
 		}
-		System.out.println(fechas);
-		System.out.println(datos);
 	%>
 	<script type="text/javascript">
 			google.charts.load('current', {'packages':['line']});
@@ -85,6 +83,7 @@
 	//		var prueba = new Date(parseInt(fan[0])).getDate();
 	//	    alert(prueba);
 		   
+
 		  function drawChart() {
 		
 		    var data = new google.visualization.DataTable();
@@ -112,8 +111,18 @@
 	</script>   
 	
 	<div id="chart" style="width: 900px; height: 500px"></div>
-   
-    
+	<h3>Mostrar medidas de la última semana</h3>
+	<input type="button" onclick="location.href='/semana'" value="Mostrar"/>  
+	<form action="/genero" method="post" acceptcharset="utf-8" class="form-container">
+      <div class="form-title"><h2>Estadísticas por genero</h2></div>
+        <select class="form-field" id="genero" name="genero">
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+        </select>
+      <div class="submit-container">
+        <input class="submit-button" type="submit" value="Mostrar" />
+      </div>
+    </form>  
 
   <!-- footer -->
   <footer>

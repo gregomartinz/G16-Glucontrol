@@ -23,7 +23,11 @@ public class LoginServlet extends HttpServlet{
 
 		GlucosaDAO dao = GlucosaDAOImpl.getInstance();
 
-//		dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", null, "admin", true);
+//		dao.create("2", "admin@gmail.com", "prueba", "hombre", "", "", null, "prueba", true);
+//		dao.create("3", "admin@gmail.com", "prueba2", "hombre", "", "", null, "prueba2", true);
+//		dao.create("4", "admin@gmail.com", "prueba3", "mujer", "", "", null, "prueba3", true);
+//		dao.create("5", "admin@gmail.com", "prueba4", "mujer", "", "", null, "prueba4", true);
+
 		String name = req.getParameter("user");
 		String pass = req.getParameter("password");
 		
