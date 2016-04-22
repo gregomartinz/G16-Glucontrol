@@ -29,7 +29,7 @@
       <nav>
         <ul>
           <li><a href="Index.jsp" class="current">Home</a></li>
-          <li><a href="Formulario.jsp">Subidas</a></li>
+          <li><a href="Formulario.jsp">Subida</a></li>
           <li><a href="/stats">Estadísticas</a></li>
           <li><a href="Profile.jsp">Perfil</a></li>
         </ul>
