@@ -1,7 +1,6 @@
 package es.upm.dit.isst.glucosa.dao;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -25,7 +24,7 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 	@Override
 	public void create(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			HashMap<Integer, String> datos, String password, boolean admin) {
+			TreeMap<Long, String> datos, String password, boolean admin) {
 		
 		EntityManager em = EMFService.get().createEntityManager();
 		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password, admin);

@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.TreeMap"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.Date"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,8 +16,10 @@
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 
+  <link rel="shortcut icon" href="img/favicon.ico" type="favicon/ico" />
 
   <script type="text/javascript" src="js/jquery-1.4.2.min.js" ></script>
+  <script type="text/javascript" src="js/cufon-yui.js"></script>
   <script type="text/javascript" src="js/Humanst521_BT_400.font.js"></script>
   <script type="text/javascript" src="js/Humanst521_Lt_BT_400.font.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
@@ -39,9 +43,9 @@
       <h1><a href="index.html">GluControl</a></h1>
       <nav>
         <ul>
-          <li><a href="Index.jsp">Home</a></li>
+          <li><a href="Index.jsp" class="current">Home</a></li>
           <li><a href="Formulario.jsp">Subida</a></li>
-          <li><a href="/stats" class="current">Estadísticas</a></li>
+          <li><a href="/stats">Estadísticas</a></li>
           <li><a href="Profile.jsp">Perfil</a></li>
         </ul>
       </nav>
@@ -58,38 +62,29 @@
      
 	<%
 		
-		ArrayList<String> f = (ArrayList<String>)session.getAttribute("statsFecha");
-		ArrayList<String> m = (ArrayList<String>)session.getAttribute("statsMedidas");
-		ArrayList<String> h = (ArrayList<String>)session.getAttribute("statsHoras");
-		String fs = "";
-		String hs = "";
-		String ms = "";
-		for(String s: f){
-			fs += s + ","; 
+		TreeMap<Long, String> stats = (TreeMap<Long, String>)session.getAttribute("stats");
+		Iterator it = stats.keySet().iterator();
+		String fechas = "";
+		String datos = "";
+		while(it.hasNext()){
+			Long key = (Long)it.next();
+			Date date = new Date(key);
+			fechas += date.getDate() + "/" + date.getMonth() + "/"+date.getYear() + ",";
+			datos += stats.get(key);
 		}
-		for(String s: h){
-			hs += s + ","; 
-		}
-		for(String s: m){
-			ms += s + ","; 
-		}
-		System.out.println(fs);
-		System.out.println(hs);
-		System.out.println(ms);
+		System.out.println(fechas);
+		System.out.println(datos);
 	%>
 	<script type="text/javascript">
 			google.charts.load('current', {'packages':['line']});
 		    google.charts.setOnLoadCallback(drawChart);
-		    var jsf = "<%=f%>";
-		    var jsm = "<%=m%>";
-		    var jsh = "<%=h%>";
-		    jsf = jsf.substring(1);
-		    jsh = jsh.substring(1);
-		    jsm = jsm.substring(1);
-		    var f = [] = jsf.split(",");
-		    var m = [] = jsm.split(",");
-		    var h = [] = jsh.split(",");
-		    
+		    var f = "<%=fechas%>";
+		    var d = "<%=datos%>";
+		    var fa  = f.split(",");
+		    var da  = d.split(",");
+	//		var prueba = new Date(parseInt(fan[0])).getDate();
+	//	    alert(prueba);
+		   
 		  function drawChart() {
 		
 		    var data = new google.visualization.DataTable();
@@ -97,8 +92,8 @@
 		    data.addColumn('number', 'Desayuno');
 		    data.addColumn('number', 'Comida');
 		    data.addColumn('number', 'Cena');
-			for(var i = 0; i<f.length; i++){
-				data.addRow([f[i], parseInt(m[i*3]), parseInt(m[i*3+1]), parseInt(m[i*3+2])]);
+			for(var i = 0; i<fa.length-1; i++){
+				data.addRow([fa[i], parseInt(da[i*3]), parseInt(da[i*3+1]), parseInt(da[i*3+2])]);
 			}
 		
 		    var options = {
@@ -114,7 +109,7 @@
 		
 		    chart.draw(data, options);
 		  }
-	</script>
+	</script>   
 	
 	<div id="chart" style="width: 900px; height: 500px"></div>
    
@@ -131,3 +126,4 @@
   <script type="text/javascript"> Cufon.now(); </script>
 </body>
 </html>
+
