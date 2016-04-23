@@ -52,7 +52,7 @@
               </li>
               <li>
               	<figure><strong>09</strong>Junio</figure>
-                <h3><a href="#">Totam rem aperiam</a></h3>
+                <h3><a href="#">Totom rem aperiam</a></h3>
                 Eaqueipsa quae abillo inventoretis et quasi architecto beatae <a href="#">...</a>
               </li>
               <li>
