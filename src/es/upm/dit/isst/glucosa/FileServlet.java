@@ -1,6 +1,7 @@
 package es.upm.dit.isst.glucosa;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import javax.xml.ws.RespectBinding;
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
 
 import es.upm.dit.isst.glucosa.dao.GlucosaDAO;
 import es.upm.dit.isst.glucosa.dao.GlucosaDAOImpl;
@@ -26,6 +28,8 @@ public class FileServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+	Date[] fechas;
+	String[] medidas;
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)
@@ -37,30 +41,36 @@ public class FileServlet extends HttpServlet {
 
         Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(req);
         TreeMap<Long, String> datos = new TreeMap<Long,String>();
-        
         List<BlobKey> blobKeys = blobs.get("myFile");
         BlobKey blobKey = new BlobKey(blobKeys.get(0).getKeyString());
         
         byte[] b= blobstoreService.fetchData(blobKey, 0, blobstoreService.MAX_BLOB_FETCH_SIZE-1);
         String str = new String(b);
         String prueba []= str.split("\n");
-        System.out.print(prueba[0]);
-        System.out.print(prueba[1]);
-        System.out.print(prueba[2]);
         
         for (int i = 0; i < prueba.length; i++) {
-			res.getWriter().print(prueba[i]);
+        	//aux[0] es la fecha y aux[1] las medidas
+        	String[] aux = prueba[i].split(";");
+        	//fecha[0] es el día, fecha [1] es el mes y fecha[2] el año
+        	String[] fecha = aux[0].split("/");
+        	Integer ano = Integer.valueOf(fecha[2]);
+        	Integer mes = Integer.valueOf(fecha[1]);
+        	Integer dia = Integer.valueOf(fecha[0]);
+        	Date date = new Date(ano + 100, mes-1, dia);
+        	Long time = date.getTime();
+        	
+        	
+        	
+//        	fechas[i] = date;
+//        	medidas[i] = aux[1];
+        	
+        	res.getWriter().print(time + aux[1]);
 		}
         
-        //Una vez aquí sólo hay que sacar los datos del blobs y mirar que sale.
         
-        //List<BlobKey> datos = blobs.get("myFile");
+        
+        //Una vez aquí sólo hay que sacar los datos del blobs y mirar que sale.
 
-//        if (datos == null || datos.isEmpty()) {
-//            res.sendRedirect("/");
-//        } else {
-//            res.sendRedirect("/serve?blob-key=" + datos.get(0).getKeyString());
-//        }
 //
 //        datos.put((Long) fecha.getTime(), formato_dato);
 //        user.setDatos(datos.get(0).getKeyString());
