@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>    
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreServiceFactory" %>
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreService" %>
+
+<%
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+%>  
   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -67,11 +73,16 @@
               <input class="form-field" type="text" placeholder="medición" name="glucosa" id="glucosa" maxlength="5" autofocus class="campo">
               <input class="form-field" type="time" placeholder="hh:mm"name="hora" id="hora" class="campo">
           </div>
-          <p class="form-title">Adjuntar fichero</p>
-            <input class="form-title" type="file" name="fichero">
       <div class="submit-container">
         <input class="submit-button" type="submit" value="Submit" />
       </div>
+    </form>         
+    <form action="<%= blobstoreService.createUploadUrl("/file") %>" method="post" enctype="multipart/form-data" class="form-container">
+       <p class="form-title">Adjuntar fichero</p>
+          <input type="file" name="myFile">
+        <div class="submit-container">
+          <input class="submit-button" type="submit" value="Submit" />
+        </div>
     </form>
   </body>
 </html>
