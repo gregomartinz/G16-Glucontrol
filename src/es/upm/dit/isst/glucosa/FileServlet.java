@@ -64,7 +64,7 @@ public class FileServlet extends HttpServlet {
 			Date date = new Date(ano + 2000, mes, dia);
         	Long time = date.getTime();
         	
-        	datos.put(time, aux[1]);
+        	datos.put(time, aux[1].substring(0, aux[1].length()-1));
         	user.setDatos(datos);
         	dao.update(user);
         	
