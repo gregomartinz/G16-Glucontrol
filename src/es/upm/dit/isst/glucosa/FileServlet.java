@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +41,10 @@ public class FileServlet extends HttpServlet {
         Usuario user = dao.readDni(dni);
 
         Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(req);
-        TreeMap<Long, String> datos = new TreeMap<Long,String>();
+        TreeMap<Long, String> datos = user.getDatos();
+		if(datos == null){
+			datos = new TreeMap<Long,String>();
+		}
         List<BlobKey> blobKeys = blobs.get("myFile");
         BlobKey blobKey = new BlobKey(blobKeys.get(0).getKeyString());
         
@@ -56,28 +60,23 @@ public class FileServlet extends HttpServlet {
         	Integer ano = Integer.valueOf(fecha[2]);
         	Integer mes = Integer.valueOf(fecha[1]);
         	Integer dia = Integer.valueOf(fecha[0]);
-        	Date date = new Date(ano + 100, mes-1, dia);
+        	@SuppressWarnings("deprecation")
+			Date date = new Date(ano + 2000, mes, dia);
         	Long time = date.getTime();
         	
+        	datos.put(time, aux[1]);
+        	user.setDatos(datos);
+        	dao.update(user);
         	
+        	System.out.println(time);
+        	System.out.println(aux[1]);
         	
-//        	fechas[i] = date;
-//        	medidas[i] = aux[1];
+//        	res.getWriter().print(time + " " +aux[1]);
         	
-        	res.getWriter().print(time + aux[1]);
 		}
-        
-        
-        
-        //Una vez aquí sólo hay que sacar los datos del blobs y mirar que sale.
+                      
+		req.getSession().setAttribute("datos", datos);
 
-//
-//        datos.put((Long) fecha.getTime(), formato_dato);
-//        user.setDatos(datos.get(0).getKeyString());
-//        dao.update(user);
-//        
-//        req.getSession().setAttribute("datos", datos);
-//        RequestDispatcher view = req.getRequestDispatcher("Index.jsp");
-//        view.forward(req, resp);
+		res.sendRedirect("/Index.jsp");
     }
 }
