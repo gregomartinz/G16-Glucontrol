@@ -24,6 +24,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>File</servlet-name>
+		<servlet-class>es.upm.dit.isst.glucosa.FileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>File</servlet-name>
+		<url-pattern>/file</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>Stats</servlet-name>
 		<servlet-class>es.upm.dit.isst.glucosa.StatsServlet</servlet-class>
 	</servlet>
