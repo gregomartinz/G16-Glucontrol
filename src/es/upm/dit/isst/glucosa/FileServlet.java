@@ -63,13 +63,14 @@ public class FileServlet extends HttpServlet {
         	@SuppressWarnings("deprecation")
 			Date date = new Date(ano + 2000, mes, dia);
         	Long time = date.getTime();
-        	
+//        	System.out.print(aux[1].substring(0, aux[1].length()-1));
+//        	System.out.print("------------");
+//        	System.out.print(aux[1]);        	
         	datos.put(time, aux[1].substring(0, aux[1].length()-1));
         	user.setDatos(datos);
-        	dao.update(user);
-        	
-        	System.out.println(time);
-        	System.out.println(aux[1]);
+        	dao.update(user);        	
+//        	System.out.println(time);
+//        	System.out.println(aux[1]);
         	
 //        	res.getWriter().print(time + " " +aux[1]);
         	
