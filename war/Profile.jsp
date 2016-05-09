@@ -44,14 +44,6 @@
         <div class="wrapper">
           <!-- content -->
           <section id="content">
-            <article>
-            	<h2>Editar <span>Perfil</span></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudansam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea tium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-              Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-            </article> 
-          </section>
-          <section id="content">
 	          <script type="text/javascript">
 			 	function mostrarNombre(){
 			 		document.getElementById("formulario").style.visibility="visible";
@@ -61,12 +53,18 @@
 			 		document.getElementById("formulario").style.visibility="visible";
 			 	 	document.getElementById("formularioFechaD").style.visibility="visible";
 			 	}
+			 	function mostrarTratamiento(){
+			 		document.getElementById("tratamiento").style.visibilitity="visible";
+			 		document.getElementById("tratamiento").style.visibility="visible";
+			 	}
 			  </script>
 			  <p>Tus datos:</p>
 			  <p>Nombre: <c:out value="${usuario}"/></p>
 			  <p>Fecha diagnóstico: <c:out value="${fechaD}"/></p>
+			  <p>Tratamiento actual: <c:out value="${tratamiento}"/></p>
 			  <input type= "button" onclick= "mostrarNombre()" value ="Editar Nombre"/>
 			  <input type= "button" onclick= "mostrarFechaD()" value ="Editar Fecha Diagnostico"/>
+			  <input type= "button" onclick= "mostrarTratamiento()" value ="Editar Tratamiento"/>
 			  <div id="formulario" style= "visibility:hidden">
 			    <form action="/profile" method="post" acceptcharset="utf-8" class="form-container">
 				  	<div id="formularioNombre" style="visibility:hidden">
@@ -77,6 +75,11 @@
 				  	<div id="formularioFechaD" style="visibility:hidden">
 					  	<div class="form-title">
 				        	<input class="form-field" ="text" placeholder="dd/mm/aaaa" name="fechaD" id="fechaD" maxlength="10" autofocus >
+					    </div>
+				  	</div>
+				  	<div id="tratamiento" style="visibility:hidden">
+					  	<div class="form-title">
+				        	<input class="form-field" ="text" placeholder="Tratamiento" name="tratamiento" id="tratamiento" maxlength="10" autofocus >
 					    </div>
 				  	</div>
 				    <input type="submit"/>       	

@@ -42,6 +42,7 @@ public class LoginServlet extends HttpServlet{
 				if (u.getPassword().equals(pass)){
 					session.setAttribute("usuario", name);
 					session.setAttribute("medico", u.isMedico());
+					session.setAttribute("tratamiento", u.getTratamiento());
 					session.setAttribute("fechaD", u.getFechaDiagnostico());
 					session.setAttribute("dni",u.getDni());  
 					url = "Index.jsp";
