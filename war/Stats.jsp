@@ -42,9 +42,9 @@
       <h1><a href="Index.jsp">GluControl</a></h1>
       <nav>
         <ul>
-          <li><a href="Index.jsp" class="current">Home</a></li>
+          <li><a href="Index.jsp">Home</a></li>
           <li><a href="Formulario.jsp">Subida</a></li>
-          <li><a href="/stats">Estadísticas</a></li>
+          <li><a href="/stats" class="current">Estadísticas</a></li>
           <li><a href="Profile.jsp">Perfil</a></li>
         </ul>
       </nav>
