@@ -62,7 +62,7 @@ public class GeneroServlet extends HttpServlet{
 		}
 		req.getSession().setAttribute("stats",genero);
 
-		RequestDispatcher view = req.getRequestDispatcher("Stats.jsp");
+		RequestDispatcher view = req.getRequestDispatcher("Genero.jsp");
 		view.forward(req, resp);
 	
 	}
