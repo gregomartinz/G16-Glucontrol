@@ -33,6 +33,9 @@ public class GeneroServlet extends HttpServlet{
 		for(Usuario u: stats){
 			System.out.println(u.getNombre());
 			TreeMap<Long,String> aux = (TreeMap<Long,String>)u.getDatos();
+			if (aux == null) {
+				continue;
+			}
 			Iterator it = aux.keySet().iterator();
 			while(it.hasNext()){
 				Long key = (Long)it.next();

@@ -76,6 +76,7 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 		EntityManager em = EMFService.get().createEntityManager();
 		try{
 			em.merge(user);
+			em.refresh(user);
 		}catch(Exception e){
 			//System.out.println("no se ha podido actualizar");
 		}

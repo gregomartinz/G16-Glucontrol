@@ -25,17 +25,24 @@ public class ProfileServlet extends HttpServlet{
 		Usuario user = dao.readDni(dni);
 		String nombre = req.getParameter("nombre");
 		String fechaD = req.getParameter("fechaD");
+		String trat = req.getParameter("tratamiento");
 		if(!nombre.equals("")){
 			user.setNombre(nombre);
 			req.getSession().setAttribute("usuario", nombre);
 		}
 		if(!fechaD.equals("")){
-			user.setFechaDiagnostico(fechaD);	
+			user.setFechaDiagnostico(fechaD);
+			req.getSession().setAttribute("fechaD", fechaD);
+		}
+		if (!trat.equals("")) {
+			user.setTratamiento(trat);
+			req.getSession().setAttribute("tratamiento", trat);
 		}
 		dao.update(user);
 		req.setAttribute("fechaD", fechaD);
 		req.setAttribute("nombre", nombre);
 		RequestDispatcher view = req.getRequestDispatcher("Index.jsp");
 		view.forward(req, resp);
+		
 	}
 }
