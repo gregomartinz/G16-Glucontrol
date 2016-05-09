@@ -19,7 +19,6 @@
   <link rel="shortcut icon" href="img/favicon.ico" type="favicon/ico" />
 
   <script type="text/javascript" src="js/jquery-1.4.2.min.js" ></script>
-
   <script type="text/javascript" src="js/Humanst521_BT_400.font.js"></script>
   <script type="text/javascript" src="js/Humanst521_Lt_BT_400.font.js"></script>
   <script type="text/javascript" src="js/cufon-replace.js"></script>
@@ -40,12 +39,12 @@
   <!-- header -->
 <header>
     <div class="container">
-      <h1><a href="index.html">GluControl</a></h1>
+      <h1><a href="Index.jsp">GluControl</a></h1>
       <nav>
         <ul>
-          <li><a href="Index.jsp" >Home</a></li>
+          <li><a href="Index.jsp" class="current">Home</a></li>
           <li><a href="Formulario.jsp">Subida</a></li>
-          <li><a href="/stats" class="current">Estadísticas</a></li>
+          <li><a href="/stats">Estadísticas</a></li>
           <li><a href="Profile.jsp">Perfil</a></li>
         </ul>
       </nav>
@@ -65,13 +64,26 @@
 		TreeMap<Long, String> stats = (TreeMap<Long, String>)session.getAttribute("stats");
 		Iterator it = stats.keySet().iterator();
 		String fechas = "";
+		String def = "";
 		String datos = "";
 		while(it.hasNext()){
 			Long key = (Long)it.next();
 			Date date = new Date(key);
 			fechas += date.getDate() + "/" + date.getMonth() + "/"+date.getYear() + ",";
 			datos += stats.get(key); 
+			System.out.println(stats.get(key));
+			System.out.println("datos");
+			System.out.println(def);
 		}
+		String prueba [] = def.split(" ");
+		System.out.println(prueba.length);
+	//	if(prueba.length > 1){
+	//		for(int i = 0; i<prueba.length; i++){
+	//				datos += prueba[i];
+	//		}
+	//	}
+		System.out.println(datos);
+		
 	%>
 	<script type="text/javascript">
 			google.charts.load('current', {'packages':['line']});
@@ -132,7 +144,7 @@
       </div>
     </div>
   </footer>
-  
+  <script type="text/javascript"> Cufon.now(); </script>
 </body>
 </html>
 

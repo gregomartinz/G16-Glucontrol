@@ -71,7 +71,6 @@ public class UploadServlet extends HttpServlet{
 			}
 		}	
 	
-
 		user.setDatos(datos);
 		dao.update(user);
 		

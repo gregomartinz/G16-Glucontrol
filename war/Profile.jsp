@@ -27,7 +27,7 @@
   <!-- header -->
   <header>
     <div class="container">
-      <h1><a href="index.html">GluControl</a></h1>
+      <h1><a href="Index.jsp">GluControl</a></h1>
       <nav>
         <ul>
           <li><a href="Index.jsp">Home</a></li>
