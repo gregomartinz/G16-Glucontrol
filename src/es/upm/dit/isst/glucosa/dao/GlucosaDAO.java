@@ -14,6 +14,6 @@ public interface GlucosaDAO {
 	public void delete(Usuario user);
 	void create(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			TreeMap<Long, String> datos, String password, boolean medico);
+			TreeMap<Long, String> datos, String password, boolean medico, String tratamiento);
 	
 }

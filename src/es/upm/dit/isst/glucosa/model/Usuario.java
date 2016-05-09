@@ -17,6 +17,7 @@ public class Usuario implements Serializable{
 	public String correo;
 	public String nombre;
 	public String genero;
+	public String tratamiento;
 	public String fechaDiagnostico;
 	public String fechaNacimiento;
 	@Basic
@@ -26,7 +27,7 @@ public class Usuario implements Serializable{
 
 	public Usuario(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			TreeMap<Long, String> datos, String password, boolean medico) {
+			TreeMap<Long, String> datos, String password, boolean medico, String tratamiento) {
 		super();
 		this.dni = dni;
 		this.correo = correo;
@@ -37,6 +38,7 @@ public class Usuario implements Serializable{
 		this.datos = datos;
 		this.password = password;
 		this.medico = medico;
+		this.tratamiento = tratamiento;
 
 	}
 	public boolean isMedico(){
@@ -53,6 +55,12 @@ public class Usuario implements Serializable{
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getTratamiento(){
+		return tratamiento;
+	}
+	public void setTratamiento(String tratamiento){
+		this.tratamiento = tratamiento;
 	}
 	public String getCorreo() {
 		return correo;
