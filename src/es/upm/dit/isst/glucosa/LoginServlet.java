@@ -22,11 +22,11 @@ public class LoginServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
 		GlucosaDAO dao = GlucosaDAOImpl.getInstance();
-//		dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", null, "admin", true);
-//		dao.create("2", "admin@gmail.com", "Antonio", "hombre", "", "", null, "1234", true);
-//		dao.create("3", "admin@gmail.com", "Jesus", "hombre", "", "", null, "1234", true);
-//		dao.create("4", "admin@gmail.com", "Sara", "mujer", "", "", null, "1234", true);
-//		dao.create("5", "admin@gmail.com", "Rosa", "mujer", "", "", null, "1234", true);
+//		dao.create("1", "admin@gmail.com", "admin", "hombre", "", "", null, "admin", true,"Básico");
+//		dao.create("2", "admin@gmail.com", "Antonio", "hombre", "", "", null, "1234", false,"Básico");
+//		dao.create("3", "admin@gmail.com", "Jesus", "hombre", "", "", null, "1234", false,"Básico");
+//		dao.create("4", "admin@gmail.com", "Sara", "mujer", "", "", null, "1234", false,"Básico");
+//		dao.create("5", "admin@gmail.com", "Rosa", "mujer", "", "", null, "1234", false,"Básico");
 
 		String name = req.getParameter("user");
 		String pass = req.getParameter("password");
@@ -41,6 +41,8 @@ public class LoginServlet extends HttpServlet{
 			if (u.getNombre().equals(name)){
 				if (u.getPassword().equals(pass)){
 					session.setAttribute("usuario", name);
+					session.setAttribute("medico", u.isMedico());
+					session.setAttribute("tratamiento", u.getTratamiento());
 					session.setAttribute("fechaD", u.getFechaDiagnostico());
 					session.setAttribute("dni",u.getDni());  
 					url = "Index.jsp";
