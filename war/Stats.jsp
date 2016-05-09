@@ -103,8 +103,10 @@
 		    data.addColumn('number', 'Desayuno');
 		    data.addColumn('number', 'Comida');
 		    data.addColumn('number', 'Cena');
+		    data.addColumn('number', 'Valor maximo');
+		    data.addColumn('number', 'Valor minimo');
 			for(var i = 0; i<fa.length-1; i++){
-				data.addRow([fa[i], parseInt(da[i*3]), parseInt(da[i*3+1]), parseInt(da[i*3+2])]);
+				data.addRow([fa[i], parseInt(da[i*3]), parseInt(da[i*3+1]), parseInt(da[i*3+2]), parseInt(50), parseInt(250)]);
 			}
 		
 		    var options = {

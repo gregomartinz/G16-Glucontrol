@@ -63,7 +63,7 @@ public class UploadServlet extends HttpServlet{
 		int d = Integer.parseInt(desayuno);
 		int co = Integer.parseInt(comida);
 		int ce = Integer.parseInt(cena);
-		if (d > 100 || co > 100 || ce > 100) {
+		if (d < 50 || co < 50 || ce < 50 || d > 250 || co > 250|| ce > 250 ) {
 			try {
 				mail(user.correo);
 			} catch (MessagingException e) {
