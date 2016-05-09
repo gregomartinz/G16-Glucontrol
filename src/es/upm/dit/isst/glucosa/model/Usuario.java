@@ -22,11 +22,11 @@ public class Usuario implements Serializable{
 	@Basic
 	public TreeMap<Long, String> datos;
 	public String password;
-	public boolean admin;
+	public boolean medico;
 
 	public Usuario(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			TreeMap<Long, String> datos, String password, boolean admin) {
+			TreeMap<Long, String> datos, String password, boolean medico) {
 		super();
 		this.dni = dni;
 		this.correo = correo;
@@ -36,11 +36,11 @@ public class Usuario implements Serializable{
 		this.fechaNacimiento = fechaNacimiento;
 		this.datos = datos;
 		this.password = password;
-		this.admin = admin;
+		this.medico = medico;
 
 	}
-	public boolean isAdmin(){
-		return this.admin;
+	public boolean isMedico(){
+		return this.medico;
 	}
 	public String getDni() {
 		return dni;

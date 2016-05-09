@@ -24,10 +24,10 @@ public class GlucosaDAOImpl implements GlucosaDAO{
 	@Override
 	public void create(String dni, String correo, String nombre, String genero,
 			String fechaDiagnostico, String fechaNacimiento,
-			TreeMap<Long, String> datos, String password, boolean admin) {
+			TreeMap<Long, String> datos, String password, boolean medico) {
 		
 		EntityManager em = EMFService.get().createEntityManager();
-		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password, admin);
+		Usuario user = new Usuario(dni, correo, nombre, genero, fechaDiagnostico, fechaNacimiento, datos, password, medico);
 
 		em.persist(user);
 		em.close();
