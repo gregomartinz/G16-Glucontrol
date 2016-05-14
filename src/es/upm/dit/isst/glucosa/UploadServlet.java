@@ -65,7 +65,12 @@ public class UploadServlet extends HttpServlet{
 		int ce = Integer.parseInt(cena);
 		if (d < 50 || co < 50 || ce < 50 || d > 250 || co > 250|| ce > 250 ) {
 			try {
-				mail(user.correo);
+				Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
+		        msg.setFrom(new InternetAddress("admin@glucosa-g16.appspotmail.com", "GluControl"));
+		        msg.addRecipient(Message.RecipientType.TO,  new InternetAddress(user.correo, "Solicitante de TFG"));
+		        msg.setSubject("Alerta de glucosa");
+		        msg.setText("Su nivel de glucosa es alto," + d + " entre a revisar el incidente");
+		        Transport.send(msg);
 			} catch (MessagingException e) {
 				e.printStackTrace();
 			}
@@ -75,27 +80,29 @@ public class UploadServlet extends HttpServlet{
 		dao.update(user);
 		
 		req.getSession().setAttribute("datos", datos);
-		//FALTA LA LECTURA DEL FICHERO Y COMPROBAR QUE LOS DATOS NO SON NULL
 		
 		RequestDispatcher view = req.getRequestDispatcher("Index.jsp");
 		view.forward(req, resp);
 		
 	}
 	
-	private void mail(String correo) throws UnsupportedEncodingException, MessagingException{
-		Properties props = new Properties();
-	    Session session = Session.getDefaultInstance(props, null);
-
-	    String msgBody = "El nivel de glucosa del paciente es muy alto";
-	    
-		Message msg = new MimeMessage(session);
-	    msg.setFrom(new InternetAddress("gregomartinz@gmail.com", "Example.com Admin"));
-	    msg.addRecipient(Message.RecipientType.TO,
-	     new InternetAddress(correo, "Mr. User"));
-	    msg.setSubject("GluControl");
-	    msg.setText(msgBody);
-	    Transport.send(msg);
-	
-	}
+//	private void mail(String correo) throws UnsupportedEncodingException, MessagingException{
+//		Properties props = new Properties();
+//	    Session session = Session.getDefaultInstance(props, null);
+//	    
+//
+//	    msg.setSubject("GluControl");
+//	    msg.setText(msgBody);
+//	    Transport.send(msg);
+//	    
+//	    
+//	    Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
+//        msg.setFrom(new InternetAddress("admin@glucosa-g16.appspotmail.com", "GluControl"));
+//        msg.addRecipient(Message.RecipientType.TO,  new InternetAddress(user, "Solicitante de TFG"));
+//        msg.setSubject("Alerta de glucosa");
+//        msg.setText("Su nivel de glucosa es alto, entre a revisar el incidente");
+//        Transport.send(msg);
+//	
+//	}
 }
 

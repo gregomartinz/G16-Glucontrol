@@ -34,6 +34,7 @@
           <li><a href="Formulario.jsp">Subida</a></li>
           <li><a href="/stats">Estadísticas</a></li>
           <li><a href="Profile.jsp" class="current">Perfil</a></li>
+          <li><a href="Login.jsp">Logout</a></li>
         </ul>
       </nav>
     </div>
