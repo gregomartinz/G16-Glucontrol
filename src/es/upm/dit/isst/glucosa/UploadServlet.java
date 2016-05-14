@@ -85,24 +85,5 @@ public class UploadServlet extends HttpServlet{
 		view.forward(req, resp);
 		
 	}
-	
-//	private void mail(String correo) throws UnsupportedEncodingException, MessagingException{
-//		Properties props = new Properties();
-//	    Session session = Session.getDefaultInstance(props, null);
-//	    
-//
-//	    msg.setSubject("GluControl");
-//	    msg.setText(msgBody);
-//	    Transport.send(msg);
-//	    
-//	    
-//	    Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
-//        msg.setFrom(new InternetAddress("admin@glucosa-g16.appspotmail.com", "GluControl"));
-//        msg.addRecipient(Message.RecipientType.TO,  new InternetAddress(user, "Solicitante de TFG"));
-//        msg.setSubject("Alerta de glucosa");
-//        msg.setText("Su nivel de glucosa es alto, entre a revisar el incidente");
-//        Transport.send(msg);
-//	
-//	}
 }
 

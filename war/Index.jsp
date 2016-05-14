@@ -49,22 +49,22 @@
             	<li>
               	<figure><strong>22</strong>Junio</figure>
                 <h3><a href="#">Nuevos dispositivos compatibles</a></h3>
-                Domnis iste natus error sit voluptam accusa doloremque <a href="#">...</a>
+                Se han desarrollado unos dispositivos que permiten acceder rápidamente a su nivel del glucosa <a href="#">...</a>
               </li>
               <li>
               	<figure><strong>09</strong>Junio</figure>
-                <h3><a href="#">Totom rem aperiam</a></h3>
-                Eaqueipsa quae abillo inventoretis et quasi architecto beatae <a href="#">...</a>
+                <h3><a href="#">El futuro de la diabetes</a></h3>
+                Recientes investigaciones apuntan al IoT para entrar en el mercado de la diabetes<a href="#">...</a>
               </li>
               <li>
               	<figure><strong>30</strong>Mayo</figure>
-                <h3><a href="#">Inventore veritatis et quasi</a></h3>
-                Architecito beatae vitae dicta sunt explicabo <a href="#">...</a>
+                <h3><a href="#">Oferta en medidores compatibles</a></h3>
+                Aquí podrás encontrar ofertas en medidores compatibles con GluControl<a href="#">...</a>
               </li>
               <li>
               	<figure><strong>21</strong>Mayo</figure>
-                <h3><a href="#">Nemo enim ipsam</a></h3>
-                Voluptatem quia voluptas sit asper natur aut odit aut fugit <a href="#">...</a>
+                <h3><a href="#">Arranca el XXIV congreso internacional de la diabetes</a></h3>
+                Tiene lugar en Móstoles y se reúnen las mejores marcas del mercado<a href="#">...</a>
               </li>
             </ul>
             <!-- /.news -->

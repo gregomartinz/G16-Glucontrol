@@ -56,7 +56,7 @@
     <div class="container">
       <div class="inside">
         <h2>Estadísticas sobre  <span>Controles de glucosa</span></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>El equipo de profesionales de la salud le ayudará a aprender cómo lograr que su nivel de glucosa en la sangre esté dentro de los niveles deseados. Los principales profesionales de la salud de este equipo pueden incluir el médico, el enfermero, el educador en diabetes y el dietista.</p>
         
    
      
